@@ -31,10 +31,22 @@ const CONFIG = {
         duration: 600
     },
     
-    // URLs das APIs (para futuras integrações)
+    // URLs das APIs e configurações
     api: {
-        googleReviews: null, // Para integração futura
-        emailService: null   // Para integração futura
+        googleMyBusiness: {
+            enabled: true,
+            apiKey: '', // Adicione sua API Key aqui
+            locationId: '', // ID da localização no Google My Business
+            placeIds: {
+                nilopolis: '', // Place ID da unidade Nilópolis
+                barra: ''      // Place ID da unidade Barra da Tijuca
+            },
+            cacheDuration: 3600000, // 1 hora em millisegundos
+            fallbackToMock: true,    // Usar dados mock se API falhar
+            minRating: 4,            // Rating mínimo para exibir
+            maxReviews: 20           // Número máximo de reviews para buscar
+        },
+        emailService: null
     },
     
     // Textos e mensagens

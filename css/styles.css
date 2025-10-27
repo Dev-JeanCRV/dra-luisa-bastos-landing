@@ -89,24 +89,6 @@ body {
     padding: 0 var(--container-padding);
 }
 
-/* Skip link para acessibilidade */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 6px;
-    background: var(--cor-texto);
-    color: var(--cor-branca);
-    padding: 8px;
-    text-decoration: none;
-    border-radius: var(--border-radius-sm);
-    z-index: 9999;
-    transition: top var(--transicao-rapida);
-}
-
-.skip-link:focus {
-    top: 6px;
-}
-
 /* Tipografia */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-titulos);
@@ -397,9 +379,6 @@ img {
 }
 
 .hero-imagem img {
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--sombra-forte);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
 /* ================================================
@@ -409,7 +388,7 @@ img {
 .sobre {
     background: var(--gradiente-primario);
     color: var(--cor-branca);
-    padding: var(--espacamento-xl) 0;
+    padding: var(--espacamento-xl) 0 0 0;
     position: relative;
     overflow: hidden;
 }
@@ -442,23 +421,26 @@ img {
 
 .sobre-conteudo {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: var(--espacamento-xl);
     position: relative;
     z-index: 1;
 }
 
 .sobre-imagem {
-    flex: 0 0 40%;
+    flex: 0 0 50%;
+    max-width: 600px;
 }
 
 .sobre-imagem img {
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--sombra-forte);
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .sobre-texto {
     flex: 1;
+    padding-bottom: var(--espacamento-xl);
 }
 
 .sobre-texto h2 {
@@ -596,7 +578,7 @@ img {
 }
 
 /* ================================================
-    SEÇÃO LOCAIS
+    SEÃ‡ÃƒO LOCAIS
    ================================================ */
 
 .locais {
@@ -750,7 +732,7 @@ img {
 
 .local-fotos img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: var(--border-radius-sm);
     box-shadow: var(--sombra-leve);
@@ -774,134 +756,6 @@ img {
     text-align: center;
     margin-bottom: var(--espacamento-xl);
     color: var(--cor-primaria);
-}
-
-.depoimentos-carousel {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.carousel-container {
-    overflow: hidden;
-    border-radius: var(--border-radius-md);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform var(--transicao-lenta);
-}
-
-.depoimento-card {
-    min-width: 100%;
-    background: var(--cor-branca);
-    padding: var(--espacamento-lg);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--sombra-leve);
-    position: relative;
-    margin: 0 var(--espacamento-sm);
-}
-
-.depoimento-card::before {
-    content: '"';
-    position: absolute;
-    top: -10px;
-    left: var(--espacamento-md);
-    font-size: 4rem;
-    color: var(--cor-destaque);
-    opacity: 0.3;
-    font-family: Georgia, serif;
-    line-height: 1;
-}
-
-.depoimento-texto {
-    font-style: italic;
-    margin-bottom: var(--espacamento-sm);
-    padding-top: var(--espacamento-sm);
-    font-size: var(--fs-normal);
-    line-height: 1.6;
-}
-
-.depoimento-autor {
-    display: flex;
-    align-items: center;
-    gap: var(--espacamento-sm);
-}
-
-.autor-info {
-    flex: 1;
-}
-
-.autor-nome {
-    font-weight: 600;
-    color: var(--cor-primaria);
-    margin-bottom: 2px;
-}
-
-.autor-detalhes {
-    font-size: var(--fs-pequeno);
-    color: var(--cor-cinza-escuro);
-}
-
-.depoimento-rating {
-    display: flex;
-    gap: 2px;
-}
-
-.depoimento-rating i {
-    color: #FFD700;
-    font-size: var(--fs-pequeno);
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--espacamento-md);
-    margin-top: var(--espacamento-md);
-}
-
-.carousel-btn {
-    background: var(--cor-destaque);
-    color: var(--cor-branca);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all var(--transicao-rapida);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-btn:hover {
-    background: var(--cor-primaria);
-    transform: scale(1.1);
-}
-
-.carousel-btn:disabled {
-    background: var(--cor-cinza-medio);
-    cursor: not-allowed;
-    transform: none;
-}
-
-.carousel-dots {
-    display: flex;
-    gap: var(--espacamento-xs);
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--cor-cinza-medio);
-    cursor: pointer;
-    transition: background var(--transicao-rapida);
-}
-
-.dot.active {
-    background: var(--cor-destaque);
 }
 
 /* ================================================
@@ -1366,15 +1220,19 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: var(--espacamento-lg);
+        align-items: center;
     }
     
     .sobre-imagem {
         order: 1;
         flex: none;
+        max-width: 100%;
+        width: 100%;
     }
     
     .sobre-texto {
         order: 2;
+        padding-bottom: var(--espacamento-lg);
     }
     
     /* Serviços mobile */
@@ -1522,7 +1380,7 @@ html {
     scroll-padding-top: 80px;
 }
 
-/* Foco visível para acessibilidade */
+/* Foco visí­vel para acessibilidade */
 *:focus-visible {
     outline: 2px solid var(--cor-destaque);
     outline-offset: 2px;
@@ -1712,53 +1570,6 @@ html {
 }
 
 /* ================================================
-    MELHORIAS DO CARROSSEL
-   ================================================ */
-
-.carousel-initialized {
-    position: relative;
-}
-
-.depoimento-card.active {
-    /* Estilo para o card ativo no carrossel */
-}
-
-/* Avatar para depoimentos */
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--gradiente-destaque);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cor-branca);
-    font-weight: 600;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    margin-right: var(--espacamento-sm);
-}
-
-.depoimento-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--espacamento-sm);
-}
-
-.verified-badge {
-    color: #1da1f2;
-    margin-left: var(--espacamento-xs);
-    font-size: 0.9rem;
-}
-
-.depoimento-date {
-    font-size: var(--fs-pequeno);
-    color: var(--cor-cinza-escuro);
-    margin-top: 2px;
-}
-
-/* ================================================
     HEADER RESPONSIVO APRIMORADO
    ================================================ */
 
@@ -1814,7 +1625,7 @@ html {
     }
 }
 
-/* Foco melhorado para navegação por teclado */
+/* Foco melhorado para navegaçãoo por teclado */
 .skip-link:focus,
 .btn:focus-visible,
 .nav-menu a:focus-visible,
@@ -1840,7 +1651,7 @@ html {
     transform: translateY(0);
 }
 
-/* Animações específicas por tipo */
+/* Animações especí­ficas por tipo */
 .hero-texto.animated {
     animation: fadeInLeft 0.8s ease;
 }
@@ -1915,7 +1726,7 @@ html {
 }
 
 /* ================================================
-    DARK MODE (PREPARAÇÃO)
+    DARK MODE (PREPARAÇÃO PARA FUTURO)
    ================================================ */
 
 @media (prefers-color-scheme: dark) {
@@ -1952,5 +1763,40 @@ html {
     .sobre {
         background: none !important;
         color: black !important;
+    }
+}
+
+/* ================================================
+    AJUSTE PARA GRID DE SERVIÇOS COM 4 CARDS
+   ================================================ */
+
+/* Grid otimizado para 4 cards */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacamento-lg);
+}
+
+/* Em telas grandes, forçar 2 colunas para 4 cards ficarem 2x2 */
+@media (min-width: 769px) {
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Em telas muito grandes, permitir 2 colunas */
+@media (min-width: 1400px) {
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile - 1 coluna */
+@media (max-width: 768px) {
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        gap: var(--espacamento-md);
     }
 }
